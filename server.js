@@ -41,7 +41,7 @@ connection.once('open', function connectionOpen() {
   require('./app')(app, logger, properties, connection)
 
   // Bootstrap routes
-  // require(__dirname + '/app/controllers/meal-plan')(app, options)
+  require(__dirname + '/app/controllers/subscribe')(app, options)
 
   logger.info('Starting instagram subscription on port ' + properties.port)
   // Start the app by listening on <port>
