@@ -1,5 +1,5 @@
-/**
- * Module dependencies.
+/*
+ * Module dependencies
  */
 
 var HashTags = require('./../../lib/hash-tags')
@@ -15,7 +15,7 @@ module.exports = function (app, options) {
   logger.info('Getting hash tags to subscribe to')
 
   hashTags.get(function (error, hastags) {
-    console.log('hash tags:', hastags)
+
   })
 
 }

@@ -17,6 +17,7 @@ var express = require('express')
 
   // Configure logger
   , logger = bunyan.createLogger({name: 'Meal-Planner'})
+  , Subscriptions = require('./lib/subscriptions')
 
 // Once connected, start server
 connection.once('open', function connectionOpen() {
@@ -35,18 +36,24 @@ connection.once('open', function connectionOpen() {
     , connection: connection
     }
 
-  var app = express()
+  // Bootstrap subscriptions
+  var subscriptions = new Subscriptions(options)
+  subscriptions.load(function (error) {
 
-  // Express settings
-  require('./app')(app, logger, properties, connection)
+    var app = express()
 
-  // Bootstrap routes
-  require(__dirname + '/app/controllers/subscribe')(app, options)
+    // Express settings
+    require('./app')(app, logger, properties, connection)
 
-  logger.info('Starting instagram subscription on port ' + properties.port)
-  // Start the app by listening on <port>
-  app.listen(properties.port)
+    // Bootstrap routes
+    require(__dirname + '/app/controllers/subscribe')(app, options)
 
-  // Expose server
-  exports = module.exports = app
+    logger.info('Starting instagram subscription on port ' + properties.port)
+    // Start the app by listening on <port>
+    app.listen(properties.port)
+
+    // Expose server
+    exports = module.exports = app
+  })
+
 })

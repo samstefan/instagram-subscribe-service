@@ -8,6 +8,12 @@ var _ = require('lodash')
       [ 'localhost:3010'
       , '192.168.1.12:3010'
       ]
+    , hashTags:
+      [ 'Bestival'
+      , 'Bestival14'
+      , 'DesertIslandDisco'
+      , 'Bestival2014'
+      ]
     }
 
   , properties =
