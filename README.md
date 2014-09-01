@@ -23,20 +23,28 @@ var _ = require('lodash')
 
   , baseProperties =
     { port: 3010
-    , database:
-      { user: ''
-      , pass: ''
-      , host: ''
-      , port: ''
-      , name: ''
-      }
-    , allowedDomains:
-      [ 'localhost:3010'
+    , database: {}
+    , clientId: ''
+    , clientSecret: ''
+    , hashTags:
+      [ 'bestival'
+      , 'bestival14'
+      , 'desertislanddisco'
+      , 'bestival2014'
       ]
+    , allowedDomains: ['localhost:2004']
     }
 
   , properties =
-    { development: {}
+    { development:
+      { database:
+        { user: ''
+        , pass: ''
+        , host: 'localhost'
+        , port: '27017'
+        , name: 'bestival-live'
+        }
+      }
     , testing: {}
   }
 
