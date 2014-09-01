@@ -51,6 +51,7 @@ module.exports = function (logger, connection) {
       , default: Date.now
       }
     }
+  , { collection: 'photos' }
   )
 
   /*
@@ -73,24 +74,17 @@ module.exports = function (logger, connection) {
 
   // User must not be banned
   PhotoSchema.path('userId').validate(function (userId, callback) {
-    var Subscription = connection.model('Subscription')
+    var BannedUser = connection.model('BannedUser')
 
-    Subscription.find({}, function(error, subscriptions){
+    BannedUser.find({}, function(error, bannedUsers){
       if (error) {
         logger.error(error)
       } else {
-        var bannedUsers = []
-
-        _.each(subscriptions, function(subscription){
-          bannedUsers.push.apply(subscription.bannerUsers)
-        })
-
         _.each(bannedUsers, function(bannedUser){
-          if (bannedUser === userId) {
+          if (bannedUser.userId === userId) {
             return callback(false)
           }
         })
-
         callback(true)
       }
     })

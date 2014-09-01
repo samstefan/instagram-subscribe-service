@@ -12,6 +12,7 @@ var _ = require('lodash')
       , 'desertislanddisco'
       , 'bestival2014'
       ]
+    , allowedDomains: ['localhost:2004']
     }
 
   , properties =

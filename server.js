@@ -25,6 +25,7 @@ connection.once('open', function connectionOpen() {
   // Bootstrap models
 ; [ 'photo'
   , 'subscription'
+  , 'banned-user'
   ].forEach(function (model) {
     require(__dirname + '/app/models/' + model)(logger, connection)
   })

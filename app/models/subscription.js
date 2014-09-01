@@ -21,19 +21,12 @@ module.exports = function (logger, connection) {
       { type: String
       , default: null
       }
-    , bannerUsers:
-      { type: []
-      , default: []
-      }
-    , removedPhotos:
-      { type: []
-      , default: []
-      }
     , dateCreated:
       { type: Date
       , default: Date.now
       }
     }
+  , { collection: 'subscriptions' }
   )
 
   connection.model('Subscription', SubscriptionSchema)
