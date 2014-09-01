@@ -4,21 +4,20 @@ var _ = require('lodash')
   , baseProperties =
     { port: 3010
     , database: {}
-    , allowedDomains:
-      [ 'localhost:3010'
-      , '192.168.1.12:3010'
-      ]
+    , clientId: 'f9ffe04efa6347c8b97cabafd8896e93'
+    , clientSecret: '5bb80ce1fb184b54a168baab4ea8c3ce'
     , hashTags:
-      [ 'Bestival'
-      , 'Bestival14'
-      , 'DesertIslandDisco'
-      , 'Bestival2014'
+      [ 'bestival'
+      , 'bestival14'
+      , 'desertislanddisco'
+      , 'bestival2014'
       ]
     }
 
   , properties =
     { development:
-      { database:
+      { callbackUrl: 'http://samstefan.x64.me:3010/callback/'
+      , database:
         { user: ''
         , pass: ''
         , host: 'localhost'
