@@ -1,4 +1,4 @@
-var require('newrelic')
+var newrelic = require('newrelic')
   , express = require('express')
   , bunyan = require('bunyan')
 
