@@ -17,7 +17,7 @@ var newrelic = require('newrelic')
     )
 
   // Configure logger
-  , logger = bunyan.createLogger({name: 'Meal-Planner'})
+  , logger = bunyan.createLogger({name: 'Bestival-Live'})
   , Subscriptions = require('./lib/subscriptions')
 
 // Once connected, start server
