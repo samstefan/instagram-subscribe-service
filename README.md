@@ -23,9 +23,15 @@ var _ = require('lodash')
 
   , baseProperties =
     { port: 3010
-    , database: {}
-    , clientId: ''
-    , clientSecret: ''
+    , database:
+      { user: ''
+      , pass: ''
+      , host: 'localhost'
+      , port: '27017'
+      , name: 'bestival-live'
+      }
+    , clientId: 'f9ffe04efa6347c8b97cabafd8896e93'
+    , clientSecret: '5bb80ce1fb184b54a168baab4ea8c3ce'
     , hashTags:
       [ 'bestival'
       , 'bestival14'
@@ -36,16 +42,9 @@ var _ = require('lodash')
     }
 
   , properties =
-    { development:
-      { database:
-        { user: ''
-        , pass: ''
-        , host: 'localhost'
-        , port: '27017'
-        , name: 'bestival-live'
-        }
-      }
+    { development: {}
     , testing: {}
+    , production: {}
   }
 
 module.exports = function () {
