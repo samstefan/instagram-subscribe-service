@@ -7,18 +7,9 @@ lib-cov
 *.pid
 *.gz
 
-Site/public/stylesheets/style.css
-Site/public/js/app.js
-Site/public/js/angular.js
-Site/public/js/plugins.js
-Site/public/js/site.js
-Site/public/js/cms.js
-/API/public/uploads/
-
 node_modules/
 
-API/newrelic_agent.log
-Site/newrelic_agent.log
+newrelic_agent.log
 
 pids
 logs
