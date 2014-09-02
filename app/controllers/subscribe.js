@@ -3,7 +3,7 @@
  */
 
 var HashTags = require('./../../lib/hash-tags')
-var Photos = require('./../../lib/photos')
+  , Photos = require('./../../lib/photos')
   , _ = require('underscore')
 
 module.exports = function (app, options) {
@@ -15,10 +15,13 @@ module.exports = function (app, options) {
 
   logger.info('Getting hash tags to subscribe to')
 
+  // Get hash tags from db
   hashTags.get(function (error, hashtags) {
+    // Subscribe to hash tags
     hashTags.subscribe(hashtags)
   })
 
+  // Start the clean up timer
   cleanUpTimer()
 
   function cleanUpTimer() {
