@@ -25,7 +25,6 @@ connection.once('open', function connectionOpen() {
 
   var Photo = connection.model('Photo')
 
-
   logger.info('Finding duplicate images')
   Photo.find({}, function (error, photos) {
     if (error) {
