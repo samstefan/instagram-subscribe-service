@@ -1,5 +1,5 @@
 var bunyan = require('bunyan')
-  , _ = require('underscore')
+  , async = require('async')
 
   // Load configurations
   , Properties = require('./../properties')
@@ -25,11 +25,13 @@ connection.once('open', function connectionOpen() {
 
   var Photo = connection.model('Photo')
 
+
+  logger.info('Finding duplicate images')
   Photo.find({}, function (error, photos) {
     if (error) {
       logger.error(error)
     } else {
-      _.each(photos, function (photo) {
+      async.each(photos, function(photo, callback) {
         var instagramId = photo.instagramId
         Photo.find({instagramId: instagramId}, function  (error, photos) {
           if (error) {
@@ -43,10 +45,15 @@ connection.once('open', function connectionOpen() {
                 } else {
                   logger.info(instagramId + ' removed')
                 }
+                callback()
               })
+            } else {
+              callback()
             }
           }
         })
+      }, function (error) {
+        process.kill()
       })
     }
   })
