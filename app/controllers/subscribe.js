@@ -29,7 +29,8 @@ module.exports = function (app, options) {
       photos.cleanUp(function () {
         cleanUpTimer()
       })
-    }, 60000 * 3)
+      // Run the clean up every 3 minutes after finishing
+    }, 60000 * 10)
   }
 
 }

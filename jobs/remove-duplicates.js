@@ -16,7 +16,7 @@ var bunyan = require('bunyan')
     )
 
   // Configure logger
-  , logger = bunyan.createLogger({name: 'Bestival-Live'})
+  , logger = bunyan.createLogger({name: 'Instagram Subscribe'})
 
 // Once connected, start server
 connection.once('open', function connectionOpen() {

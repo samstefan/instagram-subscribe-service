@@ -28,10 +28,11 @@ var _ = require('lodash')
       , pass: ''
       , host: 'localhost'
       , port: '27017'
-      , name: 'bestival-live'
+      , name: 'instagram-subscribe'
       }
-    , clientId: 'f9ffe04efa6347c8b97cabafd8896e93'
-    , clientSecret: '5bb80ce1fb184b54a168baab4ea8c3ce'
+    , clientId: ''
+    , clientSecret: ''
+    , token: ''
     , hashTags:
       [ 'bestival'
       , 'bestival14'
