@@ -1,5 +1,4 @@
-var newrelic = require('newrelic')
-  , express = require('express')
+var express = require('express')
   , bunyan = require('bunyan')
 
   // Load configurations
