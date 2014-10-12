@@ -13,11 +13,6 @@ module.exports = function (options) {
     , hashTags = new HashTags(options)
     , photos = new Photos(options)
 
-  logger.info('Getting hash tags to subscribe to')
-
-  // Get hash tags from db
-  hashTags.get(function (error, hashtags) {
-    // Subscribe to hash tags
-    hashTags.subscribe(hashtags)
-  })
+  // Subscribe to hash tags
+  hashTags.subscribe(properties.hashTags)
 }

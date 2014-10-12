@@ -22,9 +22,7 @@ var bunyan = require('bunyan')
 connection.once('open', function connectionOpen() {
 
   // Bootstrap models
-; [ 'photo'
-  , 'subscription'
-  ].forEach(function (model) {
+; [ 'photo' ].forEach(function (model) {
     require(__dirname + '/app/models/' + model)(logger, connection)
   })
 
@@ -35,13 +33,7 @@ connection.once('open', function connectionOpen() {
     , connection: connection
     }
 
-  // Bootstrap subscriptions
-  var subscriptions = new Subscriptions(options)
-  subscriptions.load(function (error) {
-    // Bootstrap routes
-    require(__dirname + '/app/controllers/subscribe')(options)
-
-    logger.info('Starting instagram subscription')
-  })
+  require(__dirname + '/app/controllers/subscribe')(options)
+  logger.info('Starting instagram subscription')
 
 })
