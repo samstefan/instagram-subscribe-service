@@ -34,12 +34,7 @@ var _ = require('lodash')
     , clientSecret: ''
     , token: ''
     , hashTags:
-      [ 'bestival'
-      , 'bestival14'
-      , 'desertislanddisco'
-      , 'bestival2014'
-      ]
-    , allowedDomains: ['localhost:2004']
+      [ 'cats' ]
     }
 
   , properties =

@@ -1,6 +1,5 @@
 var express = require('express')
   , bodyParser = require('body-parser')
-  , cors = require('./lib/middleware/cors')
   , path = require('path')
   , methodOverride = require('method-override')
   , compress = require('compression')
@@ -12,8 +11,6 @@ module.exports = function(app, logger, properties, connection) {
     // Prettify HTML during development
     app.locals.pretty = true
   }
-
-  app.use(cors(properties.allowedDomains))
 
   app.use(compress({
     filter: function(req, res) {
