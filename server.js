@@ -1,5 +1,4 @@
-var express = require('express')
-  , bunyan = require('bunyan')
+var bunyan = require('bunyan')
 
   // Load configurations
   , Properties = require('./properties')
@@ -39,21 +38,10 @@ connection.once('open', function connectionOpen() {
   // Bootstrap subscriptions
   var subscriptions = new Subscriptions(options)
   subscriptions.load(function (error) {
-
-    var app = express()
-
-    // Express settings
-    require('./app')(app, logger, properties, connection)
-
     // Bootstrap routes
-    require(__dirname + '/app/controllers/subscribe')(app, options)
+    require(__dirname + '/app/controllers/subscribe')(options)
 
-    logger.info('Starting instagram subscription on port ' + properties.port)
-    // Start the app by listening on <port>
-    app.listen(properties.port)
-
-    // Expose server
-    exports = module.exports = app
+    logger.info('Starting instagram subscription')
   })
 
 })

@@ -6,7 +6,7 @@ var HashTags = require('./../../lib/hash-tags')
   , Photos = require('./../../lib/photos')
   , _ = require('underscore')
 
-module.exports = function (app, options) {
+module.exports = function (options) {
   var logger = options.logger
     , properties = options.properties
     , connection = options.connection
@@ -20,17 +20,4 @@ module.exports = function (app, options) {
     // Subscribe to hash tags
     hashTags.subscribe(hashtags)
   })
-
-  // Start the clean up timer
-  cleanUpTimer()
-
-  function cleanUpTimer() {
-    setTimeout(function () {
-      photos.cleanUp(function () {
-        cleanUpTimer()
-      })
-      // Run the clean up every 3 minutes after finishing
-    }, 60000 * 10)
-  }
-
 }
