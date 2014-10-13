@@ -56,7 +56,7 @@ Before you can run the applcation you need to fill out the Instergram `clientId`
 
 ### Jobs
 
-The `jobs` folder contains standalone node app's for running maintenance.
+The `jobs` folder contains standalone node app's for running maintenance tasks.
 
 * `jobs/remove-duplicates.js` Finds any duplcate images based on the `photoId` and removes them.
 * `jobs/remove-deleted.js` Makes a http request to each image if the status code comes back as `404` or `403` then the photo is removed.
