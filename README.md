@@ -64,4 +64,5 @@ The `jobs` folder contains standalone node app's for running maintenance tasks.
 ## Release History
 ---
 
+* v1.0.1 Refactored code, removed express framework, added a more explicit photo model and added remove delete photo job
 * v0.0.1 Initial release.
