@@ -5,6 +5,7 @@ This repository contains Instagram Subscribe service
 
 Dependency:
   - [node.js](http://nodejs.org) `>= 0.8.0`
+  - [mongodb](http://www.mongodb.org/) `>= 2.6.0`
 
 ## Getting started
 ---
@@ -48,6 +49,17 @@ module.exports = function () {
   return _.extend({ environment: env }, baseProperties, properties[env])
 }
 ```
+
+### Instergram API Applcation
+
+Before you can run the applcation you need to fill out the Instergram `clientId`, `clientSecret` and `token`. To do this you need create a applcation with Instergram, then request a auth token. You can find out how to do that [here](http://dmolsen.com/2013/04/05/generating-access-tokens-for-instagram/).
+
+### Jobs
+
+The `jobs` folder contains standalone node app's for running maintenance.
+
+* `jobs/remove-duplicates.js` Finds any duplcate images based on the `photoId` and removes them.
+* `jobs/remove-deleted.js` Makes a http request to each image if the status code comes back as `404` or `403` then the photo is removed.
 
 ## Release History
 ---
