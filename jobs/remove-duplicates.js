@@ -31,18 +31,18 @@ connection.once('open', function connectionOpen() {
       logger.error(error)
     } else {
       async.each(photos, function(photo, callback) {
-        var instagramId = photo.instagramId
-        Photo.find({instagramId: instagramId}, function  (error, photos) {
+        var photoId = photo.photoId
+        Photo.find({photoId: photoId}, function  (error, photos) {
           if (error) {
             logger.error(error)
           } else {
             if (photos.length > 1) {
-              logger.info(instagramId + ' is a duplicate, removing')
-              Photo.findOneAndRemove({instagramId: instagramId}, function (error) {
+              logger.info(photoId + ' is a duplicate, removing')
+              Photo.findOneAndRemove({photoId: photoId}, function (error) {
                 if (error) {
                   logger.error(error)
                 } else {
-                  logger.info(instagramId + ' removed')
+                  logger.info(photoId + ' removed')
                 }
                 callback()
               })
