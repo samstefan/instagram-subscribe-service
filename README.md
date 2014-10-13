@@ -1,7 +1,7 @@
 # Instagram Subscribe
 ---
 
-This repository contains Instagram Subscribe service
+This repository contains the Instagram subscribe service. A lightweight node.js service that collects hash tagged images in a mongodb database from the Instagram API.
 
 Dependency:
   - [node.js](http://nodejs.org) `>= 0.8.0`
